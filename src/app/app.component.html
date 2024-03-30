@@ -1,22 +1,22 @@
 <mat-toolbar class="app-toolbar">
-    <img src="../favicon.ico" class="toolbar-icon" />
+    <img src="../favicon.ico" class="toolbar-icon" routerLink="/homepage"/>    
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon class="hamburger-menu">menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="/homepage">
             <span>Home</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="/planner">
             <span>Planner</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="/player">
             <span>Player</span>
         </button>
     </mat-menu>
     <span class="app-name">Mission Planner</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="share-button">
+    <a mat-icon-button class="share-button" href="https://github.com/andtt90/mission-planner-app">
         <mat-icon>share</mat-icon>
-    </button>
+    </a>
 </mat-toolbar>
+<router-outlet></router-outlet>
