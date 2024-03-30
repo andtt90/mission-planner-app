@@ -1,3 +1,22 @@
-<mat-card>
-    <mat-card-content>Angular material simple card.</mat-card-content>
-</mat-card>
+<mat-toolbar class="app-toolbar">
+    <img src="../favicon.ico" class="toolbar-icon" />
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="hamburger-menu">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <span>Home</span>
+        </button>
+        <button mat-menu-item>
+            <span>Planner</span>
+        </button>
+        <button mat-menu-item>
+            <span>Player</span>
+        </button>
+    </mat-menu>
+    <span class="app-name">Mission Planner</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="share-button">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>

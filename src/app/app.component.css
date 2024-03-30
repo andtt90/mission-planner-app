@@ -1,0 +1,25 @@
+spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar.app-toolbar {
+    background-color: black;
+}
+
+button.share-button {
+    margin-left: auto;
+    color: white;
+}
+
+.toolbar-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.app-name {
+    color: white;
+}
+
+mat-icon.hamburger-menu {
+    color: white;
+}
