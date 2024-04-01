@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatCardModule } from '@angular/material/card';
 import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
 
@@ -11,7 +11,8 @@ import { HomepageComponent } from './homepage.component';
   ],
   imports: [
     CommonModule,
-    HomepageRoutingModule
+    HomepageRoutingModule,
+    MatCardModule
   ]
 })
 export class HomepageModule { }
