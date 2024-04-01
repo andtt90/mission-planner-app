@@ -1,1 +1,51 @@
-<h1>Home Page</h1>
+<mat-card class="homepage-card">
+    <mat-card-header>
+        <h2>App description</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <p>The goal of this app is to allow the user to control a robot by creating a mission and vizualizing the
+            planned mission in the player screen.</p>
+        <p>The app is organized in three main screens:</p>
+        <ul>
+            <li>Home page - contains the description of the application and steps for how to install and use it</li>
+            <li>Planner page - used to create a mission which tells the robot where to walk point after point</li>
+            <li>Player page - allows the user to playback the created mission in order to visually verify it</li>
+        </ul>
+        <p>The app is built using the Angular and Angular Material libraries. Each of the three pages is created as an
+            Angular module, the pages are connected using routing and all pages are accesible from the toolbar of the
+            application.</p>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="homepage-card">
+    <mat-card-header>
+        <h2>App manual</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <h4>Prerequisites</h4>
+        <ul>
+            <li>Install the most recent Node.js runtime environment from this <a href="https://nodejs.org/en">link</a>
+                (version 20.11.0 was used for testing the application).</li>
+            <li>You will need a terminal app to run the installation commands (Windows powershell, Git Bash, etc.).</li>
+        </ul>
+        <h4>Installation steps</h4>
+        <ol>
+            <li>Clone the application from the github repository by using the following command</li>
+            <code>git clone https://github.com/andtt90/mission-planner-app.git</code>
+            <li>Navigate to the application folder and run the following command to install all npm packages used</li>
+            <code>npm install</code>
+            <li>Run the following command to serve the application</li>
+            <code>ng serve</code>
+            <li>Access the application by navigating to the following address using your web browser <a
+                    href="http://localhost:4200">http://localhost:4200</a></li>
+        </ol>
+        <h4>How to use</h4>
+        <ul>
+            <li>Use the planner page to create a mission for the robot by providing a list of coordinates(x/y) where the
+                robot should walk to</li>
+            <li>Verify the planned mission by using the player page. Use the play button to start moving the robot. The
+                stop button can be used stop the movement of the robot.</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
