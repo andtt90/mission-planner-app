@@ -1,0 +1,1 @@
+export const POINTS_ARRAY_KEY = 'POINTS_ARRAY';

@@ -1,0 +1,26 @@
+mat-form-field.planner-input {
+    margin-right: 10px;
+}
+
+button.add-button {
+    min-width: 106px;
+    min-height: 56px;
+    margin-bottom: 22px;
+    margin-left: 10px;
+}
+
+mat-card-content.planner-table {
+    margin: 50px;
+}
+
+tr.mat-mdc-header-row {
+    background: #e0544c;
+}
+
+div.planner-table {
+    width: 50%;
+}
+
+.no-points {
+    font-style: italic;
+}

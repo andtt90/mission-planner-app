@@ -10,3 +10,7 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #E0E0E0;
 }
+
+mat-card.app-card {
+    margin: 30px 100px 30px 100px;
+}
