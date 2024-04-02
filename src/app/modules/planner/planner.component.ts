@@ -34,6 +34,7 @@ export class PlannerComponent {
     })
     this.localStorageService.setItem(POINTS_ARRAY_KEY, JSON.stringify(this.dataSource));
     this.getDataSource();
+    this.pointForm.reset();
   }
 
   getNewPointId = () => {

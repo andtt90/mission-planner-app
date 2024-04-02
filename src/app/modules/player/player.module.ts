@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { PlayerRoutingModule } from './player-routing.module';
 import { PlayerComponent } from './player.component';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PlayerComponent } from './player.component';
   imports: [
     CommonModule,
     PlayerRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ]
 })
 export class PlayerModule { }

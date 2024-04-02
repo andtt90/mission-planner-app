@@ -6,3 +6,17 @@ canvas {
     margin: auto; */
     image-rendering: pixelated
   }
+
+  div.player-card-content {
+    display: flex;
+  }
+
+  mat-card.mission-card {
+    width: 500px;
+    margin-right: 20px;
+  }
+
+  h4 {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
