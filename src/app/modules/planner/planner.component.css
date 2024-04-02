@@ -8,3 +8,19 @@ button.add-button {
     margin-bottom: 22px;
     margin-left: 10px;
 }
+
+mat-card-content.planner-table {
+    margin: 50px;
+}
+
+tr.mat-mdc-header-row {
+    background: #e0544c;
+}
+
+div.planner-table {
+    width: 50%;
+}
+
+.no-points {
+    font-style: italic;
+}
