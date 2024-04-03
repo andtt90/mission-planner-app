@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { PlayerRoutingModule } from './player-routing.module';
 import { PlayerComponent } from './player.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import {MatListModule} from '@angular/material/list';
     CommonModule,
     PlayerRoutingModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class PlayerModule { }

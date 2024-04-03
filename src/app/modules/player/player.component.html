@@ -3,20 +3,33 @@
         <h2>Mission Player</h2>
     </mat-card-header>
     <mat-card-content>
-        <div class="player-card-content">
-            <mat-card class="mission-card">
-                <h4>Mission</h4>
-                <mat-list role="list">
-                    @for (point of pointsArray; track point) {
-                        <mat-list-item role="listitem">
-                            {{point.id + '  ' + point.name}}
-                        </mat-list-item>
-                    }
-                </mat-list>
-            </mat-card>
-            <mat-card>
-                <canvas #playerCanvas></canvas>
-            </mat-card>
+        @if (pointsArray.length > 0) {
+        <div class="player-card-content" >
+            <mat-list role="list">
+                <h2>Mission</h2>
+                @for (point of pointsArray; track point) {
+                <mat-card class="mission-steps">
+                    <mat-list-item role="listitem" class="mission-list-item">
+                        <span class="point-span">{{point.id}}</span>
+                        <span>{{point.name}}</span>
+                    </mat-list-item>
+                </mat-card>
+                }
+            </mat-list>
+            <div class="canvas-div">
+                <canvas #playerCanvas></canvas><br />
+                <div class="buttons-div">
+                    <button mat-raised-button class="player-buttons" (click)="startDrawing()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                    <button mat-raised-button class="player-buttons" (click)="stopDrawing()">
+                        <mat-icon>stop</mat-icon>
+                    </button>
+                </div>
+            </div>
         </div>
+        } @else {
+        <p class="no-points">Please add some points to display the mission player.</p>
+        }
     </mat-card-content>
 </mat-card>
