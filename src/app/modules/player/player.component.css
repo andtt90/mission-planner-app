@@ -44,3 +44,8 @@ button.player-buttons {
 .no-points {
   font-style: italic;
 }
+
+.warning-span {
+  font-style: italic;
+  color: orange;
+}
