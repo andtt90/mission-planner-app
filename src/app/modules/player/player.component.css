@@ -1,0 +1,51 @@
+canvas {
+  border: 2px solid black;
+  width: 500px;
+  height: 500px;
+}
+
+div.player-card-content {
+  display: flex;
+  background: #EEEEEE;
+  padding: 20px
+}
+
+canvas {
+  margin-left: 50px;
+}
+
+mat-card.mission-steps {
+  margin-bottom: 10px;
+}
+
+mat-list-item.mission-list-item {
+  display: inline;
+  height: 40px;
+  padding-top: 9px;
+  width: 200px;
+}
+
+span.point-span {
+  margin-right: 30px;
+}
+
+div.canvas-div {
+  display: block;
+}
+
+div.buttons-div {
+  margin-left: 50px;
+}
+
+button.player-buttons {
+  margin-right: 20px;
+}
+
+.no-points {
+  font-style: italic;
+}
+
+.warning-span {
+  font-style: italic;
+  color: orange;
+}
