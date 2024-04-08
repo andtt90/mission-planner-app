@@ -13,7 +13,8 @@ export class PlayerComponent {
   canvasElem: ElementRef<HTMLCanvasElement> | undefined;
   pointsArray: Point[] = [];
   context: CanvasRenderingContext2D | undefined | null;
-  intervalId?: any;
+  stopDraw = false;
+  image = new Image();
 
   constructor(private localStorageService: LocalStorageService, private changeDetector: ChangeDetectorRef,) { }
 
@@ -26,8 +27,8 @@ export class PlayerComponent {
       this.canvasElem.nativeElement.height = 500;
       this.context = this.canvasElem?.nativeElement.getContext('2d');
       this.drawMissionPoints();
-
     }
+    this.image.src = '../../../assets/images/robot-24.png';
   }
 
   drawMissionPoints(): void {
@@ -41,44 +42,64 @@ export class PlayerComponent {
     this.changeDetector.detectChanges();
   }
 
-  drawMissionAnimation(index: number) {
-      this.drawPath(index, this.pointsArray[index].x, this.pointsArray[index].y, this.pointsArray[index+1].x, this.pointsArray[index+1].y);
-      this.changeDetector.detectChanges();
-  }
+  drawMissionAnimation(index: any) {
+    let drawInProgress = false;
+    let higherX = this.pointsArray[index].x <= this.pointsArray[index+1].x;
+    let higherY = this.pointsArray[index].y <= this.pointsArray[index+1].y;
+    let lowerX = this.pointsArray[index].x >= this.pointsArray[index+1].x;
+    let lowerY = this.pointsArray[index].y >= this.pointsArray[index+1].y;
+    while (!drawInProgress) {
+      drawInProgress = true;
+      let drawX = this.pointsArray[index].x;
+      let drawY = this.pointsArray[index].y;
+      let intervalId = setInterval(() => {
+        if (higherX && higherY && drawX >= this.pointsArray[index + 1].x && drawY >= this.pointsArray[index + 1].y) {
+          clearInterval(intervalId);
+          index++;
+          drawInProgress = false;
+          if (index < this.pointsArray.length - 1) {
+            this.drawMissionAnimation(index);
+          }
+        }
 
-  drawPath(index: number,startX: number, startY: number, endX: number, endY: number) {
-    let drawX = startX;
-    let drawY = startY;    
-     this.intervalId = setInterval(() => {
-      if (drawX >= endX && drawY >= endY) {
-        clearInterval(this.intervalId);
-      }
-      this.context?.clearRect(0, 0, 500, 500);
-      this.drawMissionPoints();
-      this.drawCircle(drawX % 500, drawY % 500);
-      drawX < endX && drawX++;
-      drawY < endY && drawY++;
-    }, 25);    
-    if (index < this.pointsArray.length-2) {
-      this.drawMissionAnimation(index+1);
-    }
-  }
+        if (!this.stopDraw) {
+          this.context?.clearRect(0, 0, 500, 500);
+          this.drawMissionPoints();
+          this.image && this.context?.drawImage(this.image, drawX % 500, drawY % 500, 30, 30);
+          higherX && drawX < this.pointsArray[index + 1].x && drawX++;
+          higherY && drawY < this.pointsArray[index + 1].y && drawY++;
+        }
 
-  drawCircle(x: any, y: any) {
-    if (this.context) {
-      this.context.beginPath();
-      this.context.arc(x, y, 5, 0, 2 * Math.PI);
-      this.context.fillStyle = "#e0544c";
-      this.context.fill();
+        if (lowerX && lowerY && drawX <= this.pointsArray[index + 1].x && drawY <= this.pointsArray[index + 1].y) {
+          clearInterval(intervalId);
+          index++;
+          drawInProgress = false;
+          if (index < this.pointsArray.length - 1) {
+            this.drawMissionAnimation(index);
+          }
+        }
+
+        if (!this.stopDraw) {
+          this.context?.clearRect(0, 0, 500, 500);
+          this.drawMissionPoints();          
+          this.image && this.context?.drawImage(this.image, drawX % 500, drawY % 500, 30, 30);
+          lowerX && drawX > this.pointsArray[index + 1].x && drawX--;
+          lowerY && drawY > this.pointsArray[index + 1].y && drawY--;
+        }
+      }, 20);
     }
   }
 
   stopDrawing() {
-    clearInterval(this.intervalId);
+    this.stopDraw = true;
   }
 
   startDrawing() {
-    this.drawMissionAnimation(0);
+    if (this.stopDraw) {
+      this.stopDraw = false;
+    } else {
+      this.drawMissionAnimation(0);
+    }  
     this.changeDetector.detectChanges();
   }
 }
